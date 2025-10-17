@@ -1,0 +1,30 @@
+[
+    {
+        "bou_token": "<|beginofutterance|>",
+        "eou_token": "<|endofutterance|>",
+        "eod_token": "<|endoftext|>",
+        "bodom_token": "<|beginofdomain|>",
+        "eodom_token": "<|endofdomain|>",
+        "bousr_act_token": "<|beginofusract|>",
+        "eousr_act_token": "<|endofusract|>",
+        "bointent_token": "<|beginofintent|>",
+        "eointent_token": "<|endofintent|>",
+        "bodst_token": "<|beginofdst|>",
+        "eodst_token": "<|endofdst|>",
+        "boquery_token": "<|beginofdbquery|>",
+        "eoquery_token": "<|endofdbquery|>",
+        "bosys_act_token": "<|beginofsysact|>",
+        "eosys_act_token": "<|endofsysact|>",
+        "bodelex_resp_token": "<|beginofdelexresp|>",
+        "eodelex_resp_token": "<|endofdelexresp|>",
+        "boconcrete_resp_token": "<|beginofconcreteresp|>",
+        "eoconcrete_resp_token": "<|endofconcreteresp|>"
+    },
+    {
+        "default": {
+            "bou_token": "bos_token",
+            "eou_token": "eos_token",
+            "eod_token": "eos_token"
+        }
+    }
+]

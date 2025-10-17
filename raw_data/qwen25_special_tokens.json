@@ -1,0 +1,34 @@
+[
+    {
+        "bou_token": "<|im_start|>",
+        "eou_token": "<|im_end|>",
+        "eod_token": "<|endoftext|>",
+        "bodom_token": "<|beginofdomain|>",
+        "eodom_token": "<|endofdomain|>",
+        "bousr_act_token": "<|beginofusract|>",
+        "eousr_act_token": "<|endofusract|>",
+        "bointent_token": "<|beginofintent|>",
+        "eointent_token": "<|endofintent|>",
+        "bodst_token": "<|beginofdst|>",
+        "eodst_token": "<|endofdst|>",
+        "boquery_token": "<|beginofdbquery|>",
+        "eoquery_token": "<|endofdbquery|>",
+        "bosys_act_token": "<|beginofsysact|>",
+        "eosys_act_token": "<|endofsysact|>",
+        "bodelex_resp_token": "<|beginofdelexresp|>",
+        "eodelex_resp_token": "<|endofdelexresp|>",
+        "boconcrete_resp_token": "<|beginofconcreteresp|>",
+        "eoconcrete_resp_token": "<|endofconcreteresp|>",
+        "bousr_token": "<sos_u>",
+        "eousr_token": "<eos_u>",
+        "boresp_token": "<sos_r>",
+        "eoresp_token": "<eos_r>"
+    },
+    {
+        "default": {
+            "bou_token": "bos_token",
+            "eou_token": "eos_token",
+            "eod_token": "pad_token"
+        }
+    }
+]

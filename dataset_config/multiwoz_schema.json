@@ -1,0 +1,247 @@
+{
+  "taxi": {
+    "informable slots": {
+      "leave": {},
+      "destination": {},
+      "departure": {},
+      "arrive": {}
+    },
+    "requestable slots": [
+      "car",
+      "phone"
+    ]
+  },
+  "police": {
+    "informable slots": {},
+    "requestable slots": [
+      "postcode",
+      "address",
+      "phone"
+    ]
+  },
+  "hospital": {
+    "informable slots": {
+      "department": {}
+    },
+    "requestable slots": [
+      "address",
+      "phone",
+      "postcode"
+    ]
+  },
+  "hotel": {
+    "informable slots": {
+      "type": {
+        "possible_values": [
+          "guest house",
+          "hotel"
+        ]
+      },
+      "parking": {
+        "possible_values": [
+          "yes",
+          "no"
+        ]
+      },
+      "pricerange": {
+        "possible_values": [
+          "cheap",
+          "moderate",
+          "expensive"
+        ]
+      },
+      "internet": {
+        "possible_values": [
+          "yes",
+          "no"
+        ]
+      },
+      "stay": {
+        "possible_values": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ]
+      },
+      "day": {
+        "possible_values": [
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday",
+          "saturday",
+          "sunday"
+        ]
+      },
+      "people": {
+        "possible_values": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ]
+      },
+      "area": {
+        "possible_values": [
+          "centre",
+          "east",
+          "north",
+          "south",
+          "west"
+        ]
+      },
+      "stars": {
+        "possible_values": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "name": {}
+    },
+    "requestable slots": [
+      "address",
+      "postcode",
+      "internet",
+      "phone",
+      "parking",
+      "type",
+      "pricerange",
+      "stars",
+      "area",
+      "reference"
+    ]
+  },
+  "attraction": {
+    "informable slots": {
+      "area": {
+        "possible_values": [
+          "centre",
+          "east",
+          "north",
+          "south",
+          "west"
+        ]
+      },
+      "type": {},
+      "name": {}
+    },
+    "requestable slots": [
+      "price",
+      "type",
+      "address",
+      "postcode",
+      "phone",
+      "area",
+      "reference"
+    ]
+  },
+  "train": {
+    "informable slots": {
+      "destination": {},
+      "day": {
+        "possible_values": [
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday",
+          "saturday",
+          "sunday"
+        ]
+      },
+      "arrive": {},
+      "departure": {},
+      "people": {
+        "possible_values": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ]
+      },
+      "leave": {}
+    },
+    "requestable slots": [
+      "time",
+      "leave",
+      "price",
+      "arrive",
+      "id",
+      "reference"
+    ]
+  },
+  "restaurant": {
+    "informable slots": {
+      "food": {},
+      "pricerange": {
+        "possible_values": [
+          "cheap",
+          "moderate",
+          "expensive"
+        ]
+      },
+      "area": {
+        "possible_values": [
+          "centre",
+          "east",
+          "north",
+          "south",
+          "west"
+        ]
+      },
+      "name": {},
+      "time": {},
+      "day": {
+        "possible_values": [
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday",
+          "saturday",
+          "sunday"
+        ]
+      },
+      "people": {
+        "possible_values": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ]
+      }
+    },
+    "requestable slots": [
+      "phone",
+      "postcode",
+      "address",
+      "pricerange",
+      "food",
+      "area",
+      "reference"
+    ]
+  }
+}

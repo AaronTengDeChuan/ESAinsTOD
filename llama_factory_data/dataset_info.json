@@ -1,0 +1,97 @@
+{
+    "test_empty_template": {
+        "file_name": "templated_dialog.json",
+        "formatting": "sharegpt",
+        "columns": {
+            "messages": "messages"
+        },
+        "tags": {
+            "role_tag": "role",
+            "content_tag": "content",
+            "user_tag": "user",
+            "assistant_tag": "assistant",
+            "system_tag": "system"
+        }
+    },
+
+    "qwen25_smkcfbs_irs_mix_schema_raw_uttr_ddb_train": {
+        "script_url": "qwen25_ESAinsTOD",
+        "subset": "smkcfbs_irs_mix_schema_raw_uttr_ddb",
+        "split": "train",
+        "formatting": "sharegpt"
+    },
+    "qwen25_smkcfbs_irs_mix_schema_raw_uttr_ddb_dev": {
+        "script_url": "qwen25_ESAinsTOD",
+        "subset": "smkcfbs_irs_mix_schema_raw_uttr_ddb",
+        "split": "validation",
+        "formatting": "sharegpt",
+        "num_samples": 1000
+    },
+    "qwen25_smkcfbs_irs_raw_uttr_no_sa_ddb_train": {
+        "script_url": "qwen25_ESAinsTOD",
+        "subset": "smkcfbs_irs_raw_uttr_no_sa_ddb",
+        "split": "train",
+        "formatting": "sharegpt"
+    },
+    "qwen25_smkcfbs_irs_raw_uttr_no_sa_ddb_dev": {
+        "script_url": "qwen25_ESAinsTOD",
+        "subset": "smkcfbs_irs_raw_uttr_no_sa_ddb",
+        "split": "validation",
+        "formatting": "sharegpt",
+        "num_samples": 1000
+    },
+    "qwen25_smkcfbs_irs_raw_uttr_no_ia_ddb_train": {
+        "script_url": "qwen25_ESAinsTOD",
+        "subset": "smkcfbs_irs_raw_uttr_no_ia_ddb",
+        "split": "train",
+        "formatting": "sharegpt"
+    },
+    "qwen25_smkcfbs_irs_raw_uttr_no_ia_ddb_dev": {
+        "script_url": "qwen25_ESAinsTOD",
+        "subset": "smkcfbs_irs_raw_uttr_no_ia_ddb",
+        "split": "validation",
+        "formatting": "sharegpt",
+        "num_samples": 1000
+    },
+    "qwen25_smkcfbs_irs_raw_uttr_no_ia_no_sa_ddb_train": {
+        "script_url": "qwen25_ESAinsTOD",
+        "subset": "smkcfbs_irs_raw_uttr_no_ia_no_sa_ddb",
+        "split": "train",
+        "formatting": "sharegpt"
+    },
+    "qwen25_smkcfbs_irs_raw_uttr_no_ia_no_sa_ddb_dev": {
+        "script_url": "qwen25_ESAinsTOD",
+        "subset": "smkcfbs_irs_raw_uttr_no_ia_no_sa_ddb",
+        "split": "validation",
+        "formatting": "sharegpt",
+        "num_samples": 1000
+    },
+
+    "qwen25_smkcfbs_raw_uttr_pptod_ddb_train": {
+        "script_url": "qwen25_ESAinsTOD",
+        "subset": "smkcfbs_raw_uttr_pptod_ddb",
+        "split": "train",
+        "formatting": "sharegpt"
+    },
+    "qwen25_smkcfbs_raw_uttr_pptod_ddb_dev": {
+        "script_url": "qwen25_ESAinsTOD",
+        "subset": "smkcfbs_raw_uttr_pptod_ddb",
+        "split": "validation",
+        "formatting": "sharegpt",
+        "num_samples": 10000
+    },
+
+    "qwen25_skfbs_irs_mix_schema_raw_uttr_ddb_train": {
+        "script_url": "qwen25_ESAinsTOD",
+        "subset": "skfbs_irs_mix_schema_raw_uttr_ddb",
+        "split": "train",
+        "formatting": "sharegpt"
+    },
+    "qwen25_skfbs_irs_mix_schema_raw_uttr_ddb_dev": {
+        "script_url": "qwen25_ESAinsTOD",
+        "subset": "skfbs_irs_mix_schema_raw_uttr_ddb",
+        "split": "validation",
+        "formatting": "sharegpt",
+        "num_samples": 1000
+    }
+}
