@@ -18,9 +18,9 @@ University
 
 [//]: # (**[论文链接 &#40;例如ArXiv&#41;]&#40;https://arxiv.org/abs/xxxx.xxxxx&#41;** | **[项目主页 &#40;如果适用&#41;]&#40;&#41;** | **[Hugging Face &#40;如果适用&#41;]&#40;&#41;**)
 
-\[ English | [中文](README_ZH.md) \]
+\[ [English](README.md) | 中文 \]
 
-### Abstract
+### 摘要
 #### Overview
 <div>
     <img src="assets/overview-v2-crop.png" width=100%>
@@ -42,41 +42,41 @@ University
 
 ---
 
-## Table of Contents
-- [Environment Setup](#-environment-setup)
-- [Data Construction](#-data-construction)
-  - [Dataset Preparation](#dataset-preparation)
-  - [Instruction-Tuning Dataset Construction](#instruction-tuning-dataset-construction)
-- [Pre-trained Models](#-pre-trained-models)
-- [Usage](#-usage)
-  - [Training](#training)
-  - [Inference and Evaluation](#inference-and-evaluation)
-- [Main Results](#-main-results)
-- [Acknowledgments](#-acknowledgments)
-- [Contact](#-contact)
+## 目录
+- [环境搭建](#-环境搭建)
+- [数据构建](#-数据构建)
+  - [数据集准备](#数据集准备)
+  - [指令微调数据集构建](#指令微调数据集构建)
+- [预训练模型](#-预训练模型)
+- [使用说明](#-使用说明)
+  - [训练](#训练)
+  - [推理和评估](#推理和评估)
+- [主要结果](#-主要结果)
+- [致谢](#-致谢)
+- [联系方式](#-联系方式)
 
-[//]: # (- [Citation]&#40;#-citation&#41;)
+[//]: # (- [引用]&#40;#-引用&#41;)
 
 ---
 
-## 🚀 Environment Setup
+## 🚀 环境搭建
 
-We recommend using [Anaconda](https://www.anaconda.com/) to manage your Python environment.
+我们建议使用 [Anaconda](https://www.anaconda.com/) 来管理您的 Python 环境。
 
-**1. Clone the repository:**
+**1. 克隆本仓库:**
 ```bash
 git clone https://github.com/AaronTengDeChuan/ESAinsTOD.git
 cd ESAinsTOD
 ```
 
-**2. Create and activate the Conda environment:**
+**2. 创建并激活 Conda 环境:**
 
 ```bash
 conda create --name your_env_name python=3.11 -y
 conda activate your_env_name
 ```
 
-**3. Install Dependencies:**
+**3. 安装依赖:**
 
   * **通过 pip 和 `requirements.txt` 安装:**
 
@@ -84,13 +84,13 @@ conda activate your_env_name
     pip install -r requirements.txt
     ```
 
-*Note: Please install the appropriate version of PyTorch based on your CUDA version. For more information, refer to the [PyTorch official website](https://pytorch.org/get-started/locally/).*
+*注意：请根据您的 CUDA 版本安装相应版本的 PyTorch。更多信息请参考 [PyTorch官网](https://pytorch.org/get-started/locally/)。*
+    
+**4. 其他:**
 
-**4. Others:**
+本项目使用 SpaCy 中的分词工具，您可以直接通过命令 `python -m spacy download en_core_web_sm` 安装资源。
 
-We use the tokenization tool in SpaCy and you can directly install python package by command: `python -m spacy download en_core_web_sm`.
-
-Download the resources `punkt` and `wordnet` from following code.
+运行以下代码下载资源 `punkt` 和 `wordnet`。
 
 ```python
 import nltk
@@ -100,23 +100,18 @@ nltk.download('wordnet')
 
 -----
 
-## 📦 Data Construction
-
-### Dataset Preparation
-
-This work constructs our fine-tuning data from 7 end-to-end dialog datasets and 4 language understanding datasets.
-
-Please follow the instructions below to download and preprocess the datasets.
-
-  - **Download Link**: 
+## 📦 数据构建
+### 数据集准备
+本工作从7个端到端对话数据集和4个语言理解数据集构建我们的微调数据。请按照以下说明下载和预处理数据集。
+  - **下载链接**: 
     - [raw_datas.zip](https://drive.google.com/file/d/1a8wqzou0Wn_Z9p1ZrCuMzgOqU3wUv8Ta/view?usp=drive_link)
-  - **Dataset Preparation**: Unzip `raw_datas.zip` to the `raw_data/` folder in the project root directory.
+  - **数据集准备**: 将`raw_datas.zip`解压至项目根目录下的`raw_data/`文件夹中。
     ```bash
     # download raw_datas.zip and place it in './raw_data/' directory
     cd raw_data
     unzip -q raw_datas.zip
     ```
-  - **Directory Structure**: The expected dataset directory structure.
+  - **目录结构**: 期望的数据集目录结构。
     ```
     📂 ESAinsTOD/
     └── 📂 raw_data/
@@ -144,9 +139,8 @@ Please follow the instructions below to download and preprocess the datasets.
         └── 📄 special_tokens.json
     ```
 
-### Instruction-Tuning Dataset Construction
-
-  - **Text Normalization**:
+### 指令微调数据集构建
+  - **文本标准化**:
     ```bash
     cd raw_data
     # For MultiWOZ 2.1
@@ -154,7 +148,7 @@ Please follow the instructions below to download and preprocess the datasets.
     # For Camrest
     python camrest/insert_raw_messages.py
     ```
-  - **Relevant Scripts**: All scripts used for dataset preprocessing and construction are located in the [`scripts/`](scripts/) directory:
+  - **相关脚本**: 所有用于数据集预处理和构建的脚本均位于 [`scripts/`](scripts/) 目录下:
     ```
     📂 ESAinsTOD/
     └── 📂 scripts/
@@ -170,31 +164,31 @@ Please follow the instructions below to download and preprocess the datasets.
         ├── 🔡 common.sh
         └── ...
     ```
-  - **Constructing Instruction-Tuning Data**: Refer to the [`scripts/build_qwen25_instruct.sh`](scripts/build_qwen25_instruct.sh) script for the construction commands for each dataset.
+  - **构建指令微调数据**: 每个数据集的构建命令参考 [`scripts/build_qwen25_instruct.sh`](scripts/build_qwen25_instruct.sh) 脚本。
     ```bash
     bash scripts/build_qwen25_instruct.sh
     ```
-    After construction, all fine-tuning datasets will be located in the `sft_data/qwen25/` directory.
-  - **Merging Datasets**: Merge all fine-tuning datasets into one large dataset for model fine-tuning.
+    构建完成后，所有微调数据集将位于 `sft_data/qwen25/` 目录。
+  - **合并数据集**: 将所有微调数据集合并为一个大数据集，供模型微调使用。
     ```bash
-    # Modify `tools/merge_datasets.py` to control which datasets to merge
+    # 修改 `tools/merge_datasets.py` 以控制合并哪些数据集
     python tools/merge_datasets.py
     ```
-    The merged dataset is also located in the `sft_data/qwen25/` directory.
+    合并后的数据集也位于 `sft_data/qwen25/` 目录下。
 
 -----
 
-## 🤖 Pre-trained Models
+## 🤖 预训练模型
 
-We provide trained model weights on several LLMs for you to directly proceed with evaluation.
+我们提供了在几个LLMs上训练好的模型权重，方便您直接进行评估。
 
-| Model                  | Fine-tuning Datasets                                                    | Download Link                                                                                         |
+| 模型                  | 微调数据集                                                                   | 下载链接                                                                                                  |
 |:--------------------|:------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------|
 | Qwen2.5-3B-Instruct | 7 E2E Datasets (CamRest, In-Car, MultiWOZ2.1, SGD, Frames, BiToD, STAR) | [Google Drive](https://drive.google.com/file/d/1PV7ItNBW9aYC6K4k-Y669Ol23CjaRN0D/view?usp=drive_link) |
 | Llama 2 7B          | 7 E2E Datasets                                                          | [Google Drive](https://drive.google.com/file/d/1LS4gCClAFIPeIJD1BmXLEJC_OpTT8WHN/view?usp=drive_link) |
 | Llama 2 7B          | 7 E2E Datasets, 4 LU Datasets (BANKING77, CLINC150, HWU64, SNIPS)       | [Google Drive](https://drive.google.com/file/d/1zu9x_BJsVJRwgrgD_LobXLo1pUXq36b9/view?usp=drive_link) |
 
-Unzip the downloaded model weights into the `saved_models/` directory, ensuring the directory structure is as follows:
+将下载的模型权重解压至 `saved_models/` 目录下，确保目录结构如下所示：
 
 ```
 📂 ESAinsTOD/
@@ -206,19 +200,17 @@ Unzip the downloaded model weights into the `saved_models/` directory, ensuring 
 
 -----
 
-## 🛠️ Usage
+## 🛠️ 使用说明
 
-### Training
+### 训练
+推荐使用 [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) 进行 LLMs 的微调，查看 [fine_tuning/README_ZH.md](fine_tuning/README_ZH.md) 以获取详细的指导。
 
-We recommend using [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) for fine-tuning LLMs. Check [fine_tuning/README.md](fine_tuning/README.md) for detailed guidance.
+*您可以在 `fine_tuning/LLaMA-Factory` 目录下找到与训练相关的配置文件。*
 
-*You can find the training-related configuration files in the `fine_tuning/LLaMA-Factory` directory.*
+### 推理和评估
+得到微调的模型检查点（直接使用我们提供的检查点或自己从头开始微调）后，您可以通过运行以下推理脚本对这些数据集的测试集进行推理和评估
 
-### Inference and Evaluation
-
-After obtaining the fine-tuned model checkpoint (either by using our provided checkpoints or fine-tuning from scratch), you can run the following inference scripts for inference and evaluation on the test sets of these datasets.
-
-For End-to-End Dialog Modeling (**E2E**) task:
+对于端到端对话建模（**E2E**）任务：
 ```bash
 # inference and evaluation on MultiWOZ 2.1
 bash scripts/eval/multiwoz21_infer.sh "llama2-7b"
@@ -228,7 +220,7 @@ bash scripts/eval/kvret_infer.sh "llama2-7b"
 bash scripts/eval/camrest_infer.sh "llama2-7b"
 ```
 
-For Intent Detection (**ID**) task:
+对于意图识别（**ID**）任务：
 ```bash
 # inference and evaluation on BANKING77
 bash scripts/eval/banking_infer.sh
@@ -238,7 +230,7 @@ bash scripts/eval/clinc_infer.sh
 bash scripts/eval/hwu_infer.sh
 ```
 
-For Spoken Language Understanding (**SLU**) task:
+对于口语语言理解（**SLU**）任务：
 ```bash
 # inference and evaluation on SNIPS
 bash scripts/eval/snips_infer.sh
@@ -246,11 +238,11 @@ bash scripts/eval/snips_infer.sh
 
 -----
 
-## 📊 Main Results
+## 📊 主要结果
 
-ESAinsTOD achieves simultaneous Intent Prediction, Slot Filling, Dialogue State Tracking, and End-to-End Dialogue Modeling with just a single fine-tuning process.
+ESAinsTOD 仅通过一次微调即可同时实现意图预测、槽位填充、对话状态跟踪和端到端对话建模。
 
-Compared to state-of-the-art methods, ESAinsTOD achieves superior or comparable performance across all eight benchmark datasets, including: BANKING77、CLINC150、HWU64、SNIPS、CamRest、In-Car Assistant、MultiWOZ2.0 和 MultiWOZ2.1.
+与最先进的方法相比，ESAinsTOD 在所有八个基准数据集上取得了超越或可比的性能，包括：BANKING77、CLINC150、HWU64、SNIPS、CamRest、In-Car Assistant、MultiWOZ2.0 和 MultiWOZ2.1。
 
 ### Backbone Model: *Llama 2 7B*
 
@@ -284,9 +276,9 @@ Compared to state-of-the-art methods, ESAinsTOD achieves superior or comparable 
 
 -----
 
-[//]: # (## 📜 Citation)
+[//]: # (## 📜 引用)
 [//]: # ()
-[//]: # (If you use our code or find our proposed framework useful in your work, please cite our paper as:)
+[//]: # (如果您觉得我们的工作对您的研究有所帮助，请考虑引用我们的论文：)
 [//]: # ()
 [//]: # (```bibtex)
 [//]: # (@article{[您的引用标签],)
@@ -301,16 +293,15 @@ Compared to state-of-the-art methods, ESAinsTOD achieves superior or comparable 
 [//]: # ()
 [//]: # (-----)
 
-## 🙏 Acknowledgments
-
-  - Parts of the code in this project reference [PPTOD](https://github.com/awslabs/pptod) and [SPACE-3](https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/space-3).
-  - We thank the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) team for providing a powerful tool that helped us efficiently fine-tune Large Language Models.
+## 🙏 致谢
+  - 本项目的部分代码参考了 [PPTOD](https://github.com/awslabs/pptod) 和 [SPACE-3](https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/space-3)。
+  - 我们感谢 [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) 团队提供的强大工具，帮助我们高效地进行大模型微调。
 
 -----
 
-## 📧 Contact
+## 📧 联系方式
 
-If you have any questions, feel free to contact us through the following methods:
+如果您有任何问题，欢迎通过以下方式联系我们：
 
   - **Dechuan Teng**: [email](mailto:dcteng@ir.hit.edu.cn)
-  - You are welcome to submit [GitHub Issues](https://github.com/AaronTengDeChuan/ESAinsTOD/issues) to report bugs or suggest improvements.
+  - 欢迎提交 [GitHub Issues](https://github.com/AaronTengDeChuan/ESAinsTOD/issues) 来报告bug或提出建议。

@@ -1,0 +1,16 @@
+### Note: DO NOT use quantized model or quantization_bit when merging lora adapters
+
+### model
+model_name_or_path: /home/share/models/Qwen2.5-3B-Instruct
+adapter_name_or_path: saves/qwen25-3b-instruct/lora/sft/checkpoint-105
+template: qwen
+trust_remote_code: true
+
+add_tokens: "<|beginofdomain|>,<|endofdomain|>,<|beginofusract|>,<|endofusract|>,<|beginofintent|>,<|endofintent|>,<|beginofdst|>,<|endofdst|>,<|beginofdbquery|>,<|endofdbquery|>,<|beginofsysact|>,<|endofsysact|>,<|beginofdelexresp|>,<|endofdelexresp|>,<|beginofconcreteresp|>,<|endofconcreteresp|>"
+
+### export
+export_dir: output/qwen25-3b-instruct/lora/sft/checkpoint-105
+export_size: 1
+infer_dtype: bfloat16
+export_device: cpu  # choices: [cpu, auto]
+export_legacy_format: false

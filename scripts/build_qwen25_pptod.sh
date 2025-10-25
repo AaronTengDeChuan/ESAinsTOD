@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-model_path=/home/dcteng/work/LLM-Engines/LLaMA-Factory/saves/qwen25-0.5b-instruct/full/sft
+model_path="saved_models/qwen25-3b-instruct-e2e/checkpoint-930"
 model_specific_args="--processor_version=qwen25 --model_name_or_path=${model_path} --tokenizer_path= --special_tokens_file=qwen25_special_tokens.json"
 echo "model_specific_args: ${model_specific_args}"
 

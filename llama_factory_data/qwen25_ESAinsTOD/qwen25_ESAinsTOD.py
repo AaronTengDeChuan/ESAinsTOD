@@ -15,7 +15,8 @@ class CustomDatasetConfig(datasets.BuilderConfig):
           **kwargs: keyword arguments forwarded to super.
         """
         super(CustomDatasetConfig, self).__init__(**kwargs)
-        self.data_dir = "/home/dcteng/work/Dialogue/ToD/InstructToD/sft_data/qwen25"
+        print(f"Current working directory: {os.getcwd()}")
+        self.data_dir = "/home/dcteng/work/Dialogue/ToD/ESAinsTOD/sft_data/qwen25"
         print(f"Data directory of Qwen25 ESAinsTOD: {self.data_dir}")
         self.file_path_template = file_path_template
 

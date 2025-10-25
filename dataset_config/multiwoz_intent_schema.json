@@ -1,0 +1,63 @@
+{
+    "taxi": {
+        "book_taxi": {
+            "result_slots": [
+                "destination",
+                "departure",
+                "leave",
+                "arrive",
+                "car",
+                "phone"
+            ]
+        }
+    },
+    "police": {
+        "find_police": {
+            "result_slots": [
+                "name",
+                "postcode",
+                "address",
+                "phone"
+            ]
+        }
+    },
+    "hospital": {
+        "find_hospital": {
+            "result_slots": [
+                "department",
+                "address",
+                "phone",
+                "postcode"
+            ]
+        }
+    },
+    "hotel": {
+        "find_hotel": {
+            "result_slots": ["location", "price", "address", "area", "internet", "parking", "name", "phone", "postcode", "pricerange", "stars", "takesbookings", "type"]
+        },
+        "book_hotel": {
+            "result_slots": ["location", "price", "address", "area", "internet", "parking", "name", "phone", "postcode", "pricerange", "stars", "takesbookings", "type"]
+        }
+    },
+    "attraction": {
+        "find_attraction": {
+            "result_slots": ["location", "address", "area", "price", "name", "openhours", "phone", "postcode", "pricerange", "type"]
+        }
+    },
+    "train": {
+        "find_train": {
+            "result_slots": ["arrive", "day", "departure", "destination", "time", "leave", "price", "id"]
+        },
+        "book_train": {
+            "result_slots": ["arrive", "day", "departure", "destination", "time", "leave", "price", "id"]
+        }
+    },
+    "restaurant": {
+        "find_restaurant": {
+            "result_slots": ["location", "address", "area", "food", "introduction", "name", "phone", "postcode", "pricerange", "type"]
+        },
+        "book_restaurant": {
+            "result_slots": ["location", "address", "area", "food", "introduction", "name", "phone", "postcode", "pricerange", "type"]
+        }
+    }
+}

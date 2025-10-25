@@ -1,0 +1,71 @@
+### model
+model_name_or_path: /home/share/models/Qwen2.5-3B-Instruct
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 16
+lora_target: all
+# 要添加到 tokenizer 中的 special token。多个 special token 用逗号分隔。
+add_tokens: "<|beginofdomain|>,<|endofdomain|>,<|beginofusract|>,<|endofusract|>,<|beginofintent|>,<|endofintent|>,<|beginofdst|>,<|endofdst|>,<|beginofdbquery|>,<|endofdbquery|>,<|beginofsysact|>,<|endofsysact|>,<|beginofdelexresp|>,<|endofdelexresp|>,<|beginofconcreteresp|>,<|endofconcreteresp|>"
+#resize_vocab: true
+additional_target: embed_tokens,lm_head
+deepspeed: examples/deepspeed/ds_z0_config.json  # choices: [ds_z0_config.json, ds_z2_config.json, ds_z3_config.json]
+
+
+### dataset
+dataset_dir: /home/dcteng/work/Dialogue/ToD/ESAinsTOD/llama_factory_data
+dataset: qwen25_smkcfbs_irs_mix_schema_raw_uttr_ddb_train
+template: empty
+cutoff_len: 4096
+max_samples: 100000
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: saves/qwen25-3b-instruct/lora/ESAinsTOD_Qwen25-3B-Instruct_lora_e2-b64-lr5e-5-cosine_mr4e-1-wd1e-1-smkcfbs-irs-mix_schema-raw_uttr-ddb
+logging_steps: 10
+save_steps: 0.125
+save_total_limit: 5
+plot_loss: true
+overwrite_output_dir: false
+save_only_model: true
+report_to: none  # choices: [none, wandb, tensorboard, swanlab, mlflow]
+run_name: qwen25-3b-chat-lora-e2-b64-lr5e-5-cosine_mr4e-1-wd1e-1-smkcfbs-raw_uttr
+
+### train
+#seed: 1234
+#data_seed: 1234
+# NOTE: Number of GPUs: 2
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 4
+learning_rate: 5.0e-5
+num_train_epochs: 2
+#lr_scheduler_type: cosine
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs: {min_lr_rate: 0.4}
+max_grad_norm: 1.0
+warmup_ratio: 0.1
+optim: adamw_torch
+weight_decay: 0.1
+# Whether or not to disable the mask on the prompt. (default: False)
+train_on_prompt: false
+# Whether or not to mask the history and train on the last turn only. (default: False)
+mask_history: false
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null
+# If set to `True`, will track the number of input tokens seen throughout training.
+#   (May be slower in distributed training) (default: False)
+include_num_input_tokens_seen: true
+#flash_attn: fa2
+
+### eval
+eval_dataset: qwen25_smkcfbs_irs_mix_schema_raw_uttr_ddb_dev
+#val_size: 0.9
+per_device_eval_batch_size: 4
+eval_strategy: steps
+eval_steps: 0.125

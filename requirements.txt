@@ -1,0 +1,17 @@
+vllm
+xformers
+tqdm
+nltk
+rich
+spacy
+roman
+numpy
+pandas
+seaborn
+scikit-learn
+protobuf
+levenshtein
+pytorch
+datasets
+transformers
+sentencepiece
